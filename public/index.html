@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chat.io</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/splashCloud.css" />
+    <link rel="stylesheet" href="css/lib/hoverEl.css" />
+    <link rel="stylesheet" href="css/join.css" />
+    <link rel="stylesheet" href="css/dialog.css" />
+    <link rel="stylesheet" href="css/chat.css" />
+    <link rel="stylesheet" href="css/lib/pulsar.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+
+    <!-- SPLASH CLOUD -->
+    <div class="tagSplashcloudBg topSplashBg"></div>
+    <div class="tagSplashcloud topSplashV1 fxSplashSlideIn1"></div>
+    <div class="tagSplashcloud topSplashV2 fxSplashSlideIn2"></div>
+    <div class="tagSplashcloud topSplashV3 fxSplashSlideIn3"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar sticky-top bg-body-tertiary ps-4 pe-4">
+
+        <div class="container-fluid ps-0 pe-0">
+
+            <form id="sair" class="d-flex">
+                <button class="btn btn-sm btn-danger" type="submit">
+                    <i class="bi bi-chevron-left text-white me-1 hover"></i>
+                    Sair
+                </button>
+            </form>
+
+            <form id="search" class="d-flex d-none">
+                <!-- <input class="form-control me-2" type="search" name="chat" placeholder="Chat"> -->
+                <button class="btn btn-sm btn-secondary" type="submit">
+                    <i class="bi bi-gear-wide-connected text-white hover"></i>
+                </button>
+            </form>
+
+        </div>
+
+    </nav>
+
+    <!-- JOIN CHAT -->
+    <form id="join">
+        <div class="d-flex justify-content-center align-items-center ms-4 me-4" style="height: 100vh;">
+            <div class="card cardJoin">
+                <div class="card-header">
+                    Iniciar sessão
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column text-center mt-4 mb-4">
+
+                        <!-- AVATAR -->
+                        <div class="ps-4 pe-4 mb-4 text-center">
+                            <i id="previusAvatar" class="bi bi-chevron-left text-secondary me-4 fs-2 hover"></i>
+                            <img id="avatar" src="img/img1.jpg" index="1"
+                                class="rounded-circle object-fit-cover border border-2 mt-4 mb-4" width="100px"
+                                height="100px">
+                            <i id="nextAvatar" class="bi bi-chevron-right text-primary ms-4 fs-2 hover"></i>
+                        </div>
+
+                        <!-- NOME -->
+                        <div class="form-floating mb-3">
+                            <input id="floatingInputAuthor" type="text" name="username" class="form-control"
+                                placeholder="Ex: Cebolinha" required>
+                            <label for="floatingInputAuthor">Nome</label>
+                        </div>
+
+                        <!-- SALA -->
+                        <div class="form-floating mb-3">
+                            <input id="floatingInputAuthor" type="text" name="room" class="form-control"
+                                placeholder="Ex: Minha sala secreta" required>
+                            <label for="floatingInputAuthor">Sala</label>
+                        </div>
+
+                        <!-- INICIAR -->
+                        <div class="ps-4 pe-4 mb-4 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-circle fxHoverPop">
+                                <i class="bi bi-chevron-right text-white fs-2 hover"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- CHAT MAIN -->
+    <form id="chat">
+
+        <div id="contentChat" class="boxContentChat"></div>
+
+        <div class="sticky-bottom bg-body-tertiary">
+
+            <div id="contentHasTyping" class="boxHasTyping">
+                <div class="box-pulsar boxTypingAndPulsar">
+                    <p id="textUserHasTyping" style="margin: 0 5px 0 0;"></p>
+                    <p class="pulsar"></p>
+                    <p class="pulsar"></p>
+                    <p class="pulsar"></p>
+                </div>
+            </div>
+
+            <div class="hstack gap-3 ">
+
+                <div class="container ms-4 mt-2 mb-2 border border-2 rounded">
+                    <div class="w-input-container">
+                        <div class="w-input-text-group">
+                            <div id="inputSendNewMsg" name="message" class="w-input-text" contenteditable
+                                onkeydown="startTyping()"></div>
+                            <div class="w-placeholder">
+                                Mensagem
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <input id="inputSendNewMsg" class="form-control" type="text" name="message" placeholder="Mensagem" required onkeydown="startTyping()"> -->
+                <!-- <div class="vr"></div> -->
+                <button type="submit" class="btn btn-secondary rounded-circle me-4 hover"><i
+                        class="bi bi-send hover"></i></button>
+            </div>
+        </div>
+
+    </form>
+
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/socket.io.js"></script>
+    <script src="js/lib/scroll.js"></script>
+    <script src="js/lib/moment-with-locales.js"></script>
+
+    <script src="js/lib/delay.js"></script>
+    <script src="js/lib/sound.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/page.js"></script>
+    <script src="js/avatar.js"></script>
+    <script src="js/message.js"></script>
+    <script src="js/submit.js"></script>
+    <script src="js/socket.js"></script>
+    <script src="js/typing.js"></script>
+
+</body>
+
+</html>

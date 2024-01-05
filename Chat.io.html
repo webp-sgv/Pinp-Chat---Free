@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chat.io</title>
+
+    <link rel="stylesheet" href="Chat.io_arquivos/style.css">
+    <link rel="stylesheet" href="Chat.io_arquivos/splashCloud.css">
+    <link rel="stylesheet" href="Chat.io_arquivos/bootstrap.min.css">
+    <link rel="stylesheet" href="Chat.io_arquivos/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar sticky-top bg-body-tertiary ps-4 pe-4" style="display: none;">
+
+        <div class="container-fluid ps-0 pe-0">
+            <form id="sair" class="d-flex">
+                <button class="btn btn-sm btn-outline-danger" type="submit">Sair</button>
+            </form>
+
+            <form id="search" class="d-flex">
+                <input class="form-control me-2" type="search" name="chat" placeholder="Chat">
+                <button class="btn btn-outline-success" type="submit">Procurar</button>
+            </form>
+        </div>
+
+    </nav>
+
+    <!-- JOIN CHAT -->
+    <form id="join" class="h-100" style="height: 100vh;">
+        <div class="d-flex justify-content-center align-items-center ms-4 me-4" style="height: 100vh;">
+            <div class="card w-40">
+                <div class="card-header">
+                    Iniciar sessão
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column text-center mt-4 mb-4">
+
+                        <div class="ps-4 pe-4 mb-4 text-center">
+                            <i id="previusAvatar" class="bi bi-chevron-left me-4 fs-2 hover text-primary"></i>
+                            <img id="avatar" src="Chat.io_arquivos/img7.jpg" index="7" class="rounded-circle object-fit-cover border border-2 mt-4 mb-4" width="100px" height="100px">
+                            <i id="nextAvatar" class="bi bi-chevron-right text-primary ms-4 fs-2 hover"></i>
+                        </div>
+                        <div class="ps-4 pe-4 mb-4 d-flex justify-content-center">
+                            <input type="text" class="form-control" name="username" placeholder="Usuário" style="width: 400px;" required="">
+                        </div>
+                        <div class="ps-4 pe-4 mb-4 d-flex justify-content-center">
+                            <input type="text" class="form-control" name="room" placeholder="Sessão" style="width: 400px;" required="">
+                        </div>
+                        <div class="ps-4 pe-4 mb-4 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-circle">
+                                <i class="bi bi-chevron-right text-white fs-2 hover"></i>
+                            </button>
+                            <!-- <button type="submit" class="btn btn-primary">Iniciar</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- CHAT MAIN -->
+    <form id="chat" class="h-50" style="display: none;">
+
+        <div class="card text-center ms-4 me-4 mt-4">
+            <div id="idChat" class="card-header text-start">
+                Carregando...
+            </div>
+            <div class="card-body">
+                <table class="table table-striped caption-top">
+                    <tbody class="messages">
+                        </tbody><caption id="captionChat" class="titleChat">
+                            Carregando...
+                        </caption>
+                    
+                </table>
+            </div>
+            <div class="card-footer text-body-secondary text-start">
+                Voce + 2
+            </div>
+        </div>
+
+        <div class="fixed-bottom bg-body-tertiary">
+            <div class="hstack gap-3 ps-4 pe-4 pt-4 pb-4">
+                <input class="form-control me-auto" type="text" name="message" placeholder="Mensagem" required="">
+                <div class="vr"></div>
+                <button type="submit" class="btn btn-secondary"><i class="bi bi-send"></i></button>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- SPLASH CLOUD -->
+    <div tag="splashPageCloud" class="topSplashV1 topSplashSlideOut1"></div>
+    <div tag="splashPageCloud" class="topSplashV2 topSplashSlideOut2"></div>
+    <div tag="splashPageCloud" class="topSplashV3 topSplashSlideOut3"></div>
+
+    <script src="Chat.io_arquivos/popper.min.js"></script>
+    <script src="Chat.io_arquivos/bootstrap.min.js"></script>
+    <script src="Chat.io_arquivos/jquery.min.js"></script>
+    <script src="Chat.io_arquivos/socket.io.js"></script>
+    <script src="Chat.io_arquivos/moment-with-locales.js"></script>
+
+    <script src="Chat.io_arquivos/main.js"></script>
+    <script src="Chat.io_arquivos/avatar.js"></script>
+    <script src="Chat.io_arquivos/message.js"></script>
+    <script src="Chat.io_arquivos/submit.js"></script>
+    <script src="Chat.io_arquivos/socket.js"></script>
+
+
+</body></html>
