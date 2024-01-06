@@ -13,7 +13,7 @@ socket.on('previusMessages', function (messages) {
 socket.on('recivedMessage', function (message) {
     renderMessage(message);
     playSound('audio/chat/chat2.mp3', 'audio/chat/chat3.mp3');
-    scrollMove('#contentChat', 600); // move o scroll para baixo a fim de mostrar a mensagem mais nova
+    scrollMove('#contentChat', 1000); // move o scroll para baixo a fim de mostrar a mensagem mais nova
 });
 
 // recebe dados do chata
@@ -37,7 +37,6 @@ socket.on('userHasTyping', function (data) {
     var t = data.room;
     $('#textUserHasTyping')[0].innerText = `${author} está digitando`; 
     $('#contentHasTyping').show();
-    console.log(data);
 });
 
 // ao receber que o usuario parou de digitar

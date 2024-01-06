@@ -14,7 +14,7 @@ $('#chat').submit(function () {
     objMsg.avatar = avatar;
     objMsg.t = new Date().getTime();
 
-    $('input[name=message]').val('');
+    $('#inputSendNewMsg')[0].innerText = '' 
 
     socket.emit('sendMessage', objMsg);
     

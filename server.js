@@ -57,13 +57,11 @@ io.on('connection', socket => {
 
     // esta digitando
     socket.on('hasTyping', data => {
-        socket.join(data.room);
         socket.to(data.room).emit('userHasTyping', data);
     });
 
     // parou de digitar
     socket.on('stopTyping', data => {
-        socket.join(data.room);
         socket.to(data.room).emit('userStopTyping', data);
     });
 
