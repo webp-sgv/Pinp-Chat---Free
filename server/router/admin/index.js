@@ -10,26 +10,9 @@ router.get('/router/adm/test/db', async (req, res) => {
     const db = await conn.connection();
 
     const command = `
-        IF NOT EXISTS (
-            SELECT * FROM column1;
-        )
-        BEGIN
-            INSERT INTO table (
-                column1,
-                column2
-            ) VALUES (
-                'column1',
-                'column2'
-            )
-        END
-        ELSE
-        BEGIN
-            UPDATE table
-            SET column1 = 'value1'
-            column2 = 'value2'
-        END
+        SELECT * FROM usuarios;
     `;
-    const params = [];
+    const params = [1];
 
     const resultQuery = await query.execulteQuery(db, command, params);
 
@@ -42,7 +25,31 @@ router.get('/router/adm/test/db', async (req, res) => {
 
 router.get('/router/adm/create/table/user', async (req, res) => {
 
+    const conn = new sqlite();
+    const query = new sqlQuery();
+    const db = await conn.connection();
 
+    const command = `
+        CREATE TABLE IF NOT EXISTS usuarios (
+            id integer PRIMARY KEY AUTOINCREMENT,
+            nome varchar(50) NOT NULL,
+            email varchar(100) NOT NULL UNIQUE,
+            senha char(72),
+            ativo integer NOT NULL DEFAULT 1,
+            resetar_senha integer NOT NULL DEFAULT 0,
+            criado datetime NOT NULL DEFAULT GETDATE
+        );
+    `;
+    const params = [];
+
+    const resultQuery = await query.execulteQuery(db, command, params);
+
+    res.status(200).json({
+        "status": "ok",
+        "fx-human": "Cria a tabela usuario caso nao exista",
+        "fx": "create_table_user_if_not_exist",
+        "fx-response": resultQuery
+    });
 
 });
 
