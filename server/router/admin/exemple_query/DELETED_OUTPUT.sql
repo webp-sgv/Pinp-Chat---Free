@@ -1,0 +1,4 @@
+DELETE TOP(1) table
+OUTPUT
+    DELETED.column1 AS 'COLUNA1 APAGADA'
+WHERE column1 = 1

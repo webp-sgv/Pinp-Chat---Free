@@ -5,3 +5,8 @@ const app = new mainAppUse;
 app.use(
     require('./server/router/home/index')
 );
+
+// ADM
+app.use(
+    require('./server/router/admin/index')
+);

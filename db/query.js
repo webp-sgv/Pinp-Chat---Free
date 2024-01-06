@@ -7,7 +7,7 @@ const querySimples = async (db, query, params) => {
 module.exports = function () {
     // EXECULTA UMA QUERY SIMPLES COM QUERY E PARAMETROS
     this.execulteQuery = async (db, query, params) => {
-        const query = await querySimples(db, query, params);
-        return query;
+        const data = await querySimples(db, query, params);
+        return data;
     };
 };
