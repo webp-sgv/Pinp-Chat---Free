@@ -1,5 +1,5 @@
 var host = window.location.hostname;
-var socket = io(`http://${host}:3000`);
+var socket = io(host);
 var links = [
     { id: 1, link: "img/avatar/img1.jpg" },
     { id: 2, link: "img/avatar/img2.jpg" },
