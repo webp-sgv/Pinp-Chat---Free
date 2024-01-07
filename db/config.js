@@ -2,9 +2,11 @@
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
 
+const base = process.env.PORT ? 'live.db' : 'sandbox.db';
+
 const dataBase = async () => {
     const db = await open({
-        filename: 'db/database.db',
+        filename: `db/${base}`,
         driver: sqlite3.cached.Database
     });
     return db;
