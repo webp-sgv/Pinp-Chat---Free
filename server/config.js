@@ -3,6 +3,8 @@ const path = require('path');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
+const sqlite = require('../db/config'); // BIBLIOTECA QUE CONECTA AO SQLITE
+const sqlQuery = require('../db/query'); // BIBLIOTECA QUE EXECULTA QUERY'S
 const port = process.env.PORT || 3000;
 
 module.exports = function () {
@@ -28,6 +30,15 @@ module.exports = function () {
         };
     };
 
+    // execulta query
+    async function execulteQuery(command, params) {
+        const conn = new sqlite();
+        const query = new sqlQuery();
+        const db = await conn.connection();
+        const resultQuery = await query.execulteQuery(db, command, params);
+        return resultQuery;
+    };
+
     app.use(express.static(path.join(__dirname, '../public')));
     app.set('views', path.join(__dirname, '../public'));
     app.engine('html', require('ejs').renderFile);
@@ -39,13 +50,39 @@ module.exports = function () {
     let rooms = [];
 
     io.on('connection', socket => {
+
         hosts++;
-        //console.log(`Um usuario se conectou no socket: ${socket.id}, total conectados: ${hosts}`);
+
         sockets.push({ id: socket.id });
-        console.log(`O usuario: ${socket.id} entrou`);
 
         // enviou mensagem
-        socket.on('sendMessage', data => {
+        socket.on('sendMessage', async (data) => {
+            var query = `
+                INSERT INTO message (
+                    author,
+                    type,
+                    msg,
+                    room,
+                    avatar,
+                    t
+                ) VALUES (
+                    $author,
+                    $type,
+                    $msg,
+                    $room,
+                    $avatar,
+                    $t
+                );
+            `;
+            var params = {
+                "$author": data.author,
+                "$type": 'chat',
+                "$msg": data.msg,
+                "$room": data.room,
+                "$avatar": data.avatar,
+                "$t": data.t
+            };
+            execulteQuery(query, params);
             setSocketsData(socket, data);
             messages.push(data);
             socket.join(data.room);
@@ -63,12 +100,24 @@ module.exports = function () {
         });
 
         // entrou em usa sala
-        socket.on('join', data => {
+        socket.on('join', async (data) => {
             setSocketsData(socket, data);
             setRoomsData(socket, data);
             socket.join(data.room);
-            socket.emit('previusMessages', messages.filter((rows) => rows.room == data.room));
+
+            var query = `
+                SELECT * FROM message
+                WHERE room = $room
+                ORDER BY t ASC;
+            `;
+            var params = {
+                "$room": data.room
+            };
+            const filds = await execulteQuery(query, params);
+
+            socket.emit('previusMessages', filds);
             socket.emit('recivedChat', rooms.filter((rows) => rows.room == data.room));
+            socket.to(data.room).emit('userJoinChat', data);
         });
 
         // disconectou da sessao
@@ -78,6 +127,7 @@ module.exports = function () {
             sockets = newObj;
             console.log(`O usuario: ${socket.id} saiu`);
         });
+
     });
 
     server.listen(port);

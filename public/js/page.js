@@ -13,4 +13,5 @@ window.addEventListener('load', async function () {
 
     // verifica se ja esta conectado
     checkAuthor();
+    
 })

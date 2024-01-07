@@ -44,3 +44,12 @@ socket.on('userStopTyping', function (data) {
     $('#textUserHasTyping')[0].innerText = "";
     $('#contentHasTyping').hide();
 });
+
+// ao receber que um usuario entrou no chat
+socket.on('userJoinChat', function(data) {
+    var author = data.author;
+    var room = data.room;
+    var t = data.room;
+    $('#textUserHasTyping')[0].innerText = `${author} entrou na conversa`; 
+    $('#contentHasTyping').show();
+});

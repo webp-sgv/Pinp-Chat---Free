@@ -26,113 +26,115 @@
     <div class="tagSplashcloud topSplashV2 fxSplashSlideIn2"></div>
     <div class="tagSplashcloud topSplashV3 fxSplashSlideIn3"></div>
 
-    <!-- NAVBAR -->
-    <nav id="navbar" class="navbar sticky-top bg-body-tertiary ps-2 pe-2">
+    <main id="mainChat" class="mainChat">
+        <!-- NAVBAR -->
+        <nav id="navbar" class="navbar sticky-top bg-body-tertiary ps-2 pe-2">
 
-        <div class="container-fluid ps-0 pe-0">
+            <div class="container-fluid ps-0 pe-0">
 
-            <form id="sair" class="d-flex">
-                <button class="btn btn-sm btn-danger" type="submit">
-                    <i class="bi bi-chevron-left text-white me-1 hover"></i>
-                    Sair
-                </button>
-            </form>
+                <form id="sair" class="d-flex">
+                    <button class="btn btn-sm btn-danger" type="submit">
+                        <i class="bi bi-chevron-left text-white me-1 hover"></i>
+                        Sair
+                    </button>
+                </form>
 
-            <form id="search" class="d-flex d-none">
-                <!-- <input class="form-control me-2" type="search" name="chat" placeholder="Chat"> -->
-                <button class="btn btn-sm btn-secondary" type="submit">
-                    <i class="bi bi-gear-wide-connected text-white hover"></i>
-                </button>
-            </form>
+                <form id="search" class="d-flex d-none">
+                    <!-- <input class="form-control me-2" type="search" name="chat" placeholder="Chat"> -->
+                    <button class="btn btn-sm btn-secondary" type="submit">
+                        <i class="bi bi-gear-wide-connected text-white hover"></i>
+                    </button>
+                </form>
 
-        </div>
+            </div>
 
-    </nav>
+        </nav>
 
-    <!-- JOIN CHAT -->
-    <form id="join">
-        <div class="d-flex justify-content-center align-items-center ms-4 me-4" style="height: 100vh;">
-            <div class="card cardJoin">
-                <div class="card-header">
-                    Iniciar sessão
-                </div>
-                <div class="card-body">
-                    <div class="d-flex flex-column text-center mt-4 mb-4">
+        <!-- JOIN CHAT -->
+        <form id="join">
+            <div class="d-flex justify-content-center align-items-center ms-4 me-4" style="height: 100vh;">
+                <div class="card cardJoin">
+                    <div class="card-header">
+                        Iniciar sessão
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-column text-center mt-4 mb-4">
 
-                        <!-- AVATAR -->
-                        <div class="ps-4 pe-4 mb-4 text-center">
-                            <i id="previusAvatar" class="bi bi-chevron-left text-secondary me-4 fs-2 hover"></i>
-                            <img id="avatar" src="img/img1.jpg" index="1"
-                                class="rounded-circle object-fit-cover border border-2 mt-4 mb-4" width="100px"
-                                height="100px">
-                            <i id="nextAvatar" class="bi bi-chevron-right text-primary ms-4 fs-2 hover"></i>
+                            <!-- AVATAR -->
+                            <div class="ps-4 pe-4 mb-4 text-center">
+                                <i id="previusAvatar" class="bi bi-chevron-left text-secondary me-4 fs-2 hover"></i>
+                                <img id="avatar" src="img/img1.jpg" index="1"
+                                    class="rounded-circle object-fit-cover border border-2 mt-4 mb-4" width="100px"
+                                    height="100px">
+                                <i id="nextAvatar" class="bi bi-chevron-right text-primary ms-4 fs-2 hover"></i>
+                            </div>
+
+                            <!-- NOME -->
+                            <div class="form-floating mb-3">
+                                <input id="floatingInputAuthor" type="text" name="username" class="form-control"
+                                    placeholder="Ex: Cebolinha" required>
+                                <label for="floatingInputAuthor">Nome</label>
+                            </div>
+
+                            <!-- SALA -->
+                            <div class="form-floating mb-3">
+                                <input id="floatingInputAuthor" type="text" name="room" class="form-control"
+                                    placeholder="Ex: Minha sala secreta" required>
+                                <label for="floatingInputAuthor">Sala</label>
+                            </div>
+
+                            <!-- INICIAR -->
+                            <div class="ps-4 pe-4 mb-4 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-circle fxHoverPop">
+                                    <i class="bi bi-chevron-right text-white fs-2 hover"></i>
+                                </button>
+                            </div>
+
                         </div>
-
-                        <!-- NOME -->
-                        <div class="form-floating mb-3">
-                            <input id="floatingInputAuthor" type="text" name="username" class="form-control"
-                                placeholder="Ex: Cebolinha" required>
-                            <label for="floatingInputAuthor">Nome</label>
-                        </div>
-
-                        <!-- SALA -->
-                        <div class="form-floating mb-3">
-                            <input id="floatingInputAuthor" type="text" name="room" class="form-control"
-                                placeholder="Ex: Minha sala secreta" required>
-                            <label for="floatingInputAuthor">Sala</label>
-                        </div>
-
-                        <!-- INICIAR -->
-                        <div class="ps-4 pe-4 mb-4 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg rounded-circle fxHoverPop">
-                                <i class="bi bi-chevron-right text-white fs-2 hover"></i>
-                            </button>
-                        </div>
-
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-    <!-- CHAT MAIN -->
-    <form id="chat">
+        <!-- CHAT MAIN -->
+        <form id="chat">
 
-        <div id="contentChat" class="boxContentChat"></div>
+            <div id="contentChat" class="boxContentChat"></div>
 
-        <div class="sticky-bottom bg-body-tertiary">
+            <div class="sticky-bottom bg-body-tertiary">
 
-            <div id="contentHasTyping" class="boxHasTyping">
-                <div class="box-pulsar boxTypingAndPulsar">
-                    <p id="textUserHasTyping" style="margin: 0 5px 0 0;"></p>
-                    <p class="pulsar"></p>
-                    <p class="pulsar"></p>
-                    <p class="pulsar"></p>
+                <div id="contentHasTyping" class="boxHasTyping">
+                    <div class="box-pulsar boxTypingAndPulsar">
+                        <p id="textUserHasTyping" style="margin: 0 5px 0 0;"></p>
+                        <p class="pulsar"></p>
+                        <p class="pulsar"></p>
+                        <p class="pulsar"></p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="hstack gap-3">
+                <div class="hstack gap-3">
 
-                <div class="container ms-2 mt-2 mb-2 border border-2 rounded">
-                    <div class="w-input-container">
-                        <div class="w-input-text-group">
-                            <div id="inputSendNewMsg" name="message" class="w-input-text" contenteditable
-                                onkeydown="startTyping()"></div>
-                            <div class="w-placeholder">
-                                Mensagem
+                    <div class="container ms-2 mt-2 mb-2 border border-2 rounded">
+                        <div class="w-input-container">
+                            <div class="w-input-text-group">
+                                <div id="inputSendNewMsg" name="message" class="w-input-text" contenteditable
+                                    onkeydown="startTyping()"></div>
+                                <div class="w-placeholder">
+                                    Mensagem
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <button type="submit" class="btn btn-secondary rounded-circle me-2 hover">
+                        <i class="bi bi-send hover"></i>
+                    </button>
+
                 </div>
-
-                <button type="submit" class="btn btn-secondary rounded-circle me-2 hover">
-                    <i class="bi bi-send hover"></i>
-                </button>
-
             </div>
-        </div>
 
-    </form>
+        </form>
+    </main>
 
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>

@@ -3,15 +3,19 @@ const { open } = require('sqlite');
 
 // REALIZA UMA PESQUISA SIMPLES [ SELECT, DELETE, UPDATE & INSERT ]
 const querySimples = async (db, query, params) => {
-    
+
     var newObj = [];
 
     await db.each(query, params, (err, row) => {
+        if (err) {
+            newObj.push({"err": true, "data": err});
+            return;
+        };
         newObj.push(row);
     });
 
-    db.close();
     return newObj;
+
 };
 
 module.exports = function () {

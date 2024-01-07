@@ -17,7 +17,7 @@ moment.locale('pt-br');
 // inicializa a sessao
 function joinSession(data) {
     socket.emit('join', data);
-    playSound('audio/click/click.mp3');
+    playSound('audio/chat/chat6.mp3');
 };
 
 // funcao que verifica se existe texto nos inputs de iniciar sessao

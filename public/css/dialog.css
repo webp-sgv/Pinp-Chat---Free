@@ -11,6 +11,7 @@
     width: 100vw;
     height: 82vh;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 /* content chat default */
