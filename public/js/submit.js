@@ -1,4 +1,4 @@
-// ao clicar no botao enviar
+// ao clicar no botao enviar ou pressionar enter
 $('#chat').submit(function () {
     event.preventDefault();
 
@@ -14,12 +14,19 @@ $('#chat').submit(function () {
     objMsg.avatar = avatar;
     objMsg.t = new Date().getTime();
 
-    $('#inputSendNewMsg')[0].innerText = '' 
+    $('#inputSendNewMsg')[0].innerText = ''
 
     socket.emit('sendMessage', objMsg);
-    
+
     stopTyping(); // sinaliza ao servidor que o usuario parou de digitar
     renderMessage(objMsg);
+});
+$('#inputSendNewMsg').keydown(function (event) {
+    // enter has keyCode = 13, change it if you want to use another button
+    if (event.keyCode == 13) {
+        submit();
+        return false;
+    }
 });
 
 // ao clicar em sair do chat atual

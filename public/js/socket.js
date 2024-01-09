@@ -3,7 +3,7 @@ socket.on('previusMessages', function (messages) {
     clearMessages(); // limpa todas as mensagens
 
     for (message of messages) {
-        renderMessage(message);
+        renderMessage(message, 'previusMsg');
     };
 
     scrollMove('#contentChat', 600); // move o scroll para baixo a fim de mostrar a mensagem mais nova
@@ -11,7 +11,7 @@ socket.on('previusMessages', function (messages) {
 
 // esculta todas mensagens recebidas no canal
 socket.on('recivedMessage', function (message) {
-    renderMessage(message);
+    renderMessage(message, 'newMsg');
     playSound('audio/chat/chat2.mp3', 'audio/chat/chat3.mp3');
     scrollMove('#contentChat', 1000); // move o scroll para baixo a fim de mostrar a mensagem mais nova
 });

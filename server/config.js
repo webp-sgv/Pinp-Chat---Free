@@ -106,15 +106,17 @@ module.exports = function () {
             socket.join(data.room);
 
             var query = `
-                SELECT * FROM message
+                SELECT 
+                *
+                FROM message
                 WHERE room = $room
-                ORDER BY t ASC;
+                ORDER BY id ASC
+                LIMIT 100;
             `;
             var params = {
                 "$room": data.room
             };
             const filds = await execulteQuery(query, params);
-
             socket.emit('previusMessages', filds);
             socket.emit('recivedChat', rooms.filter((rows) => rows.room == data.room));
             socket.to(data.room).emit('userJoinChat', data);

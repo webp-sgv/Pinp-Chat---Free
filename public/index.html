@@ -30,14 +30,18 @@
         <!-- NAVBAR -->
         <nav id="navbar" class="navbar sticky-top bg-body-tertiary ps-2 pe-2">
 
-            <div class="container-fluid ps-0 pe-0">
+            <div class="ps-0 pe-0 d-flex">
 
                 <form id="sair" class="d-flex">
-                    <button class="btn btn-sm btn-danger" type="submit">
-                        <i class="bi bi-chevron-left text-white me-1 hover"></i>
-                        Sair
+                    <button class="btn btn-sm" type="submit">
+                        <i class="bi bi-chevron-left text-black me-1 hover"></i>
+                        Voltar
                     </button>
                 </form>
+
+                <div class="d-flex aling-center">
+                    Nerd
+                </div>
 
                 <form id="search" class="d-flex d-none">
                     <!-- <input class="form-control me-2" type="search" name="chat" placeholder="Chat"> -->
@@ -101,7 +105,7 @@
 
             <div id="contentChat" class="boxContentChat"></div>
 
-            <div class="sticky-bottom bg-body-tertiary">
+            <div class="ps-2 pe-3 pt-2 pb-2 bg-white">
 
                 <div id="contentHasTyping" class="boxHasTyping">
                     <div class="box-pulsar boxTypingAndPulsar">
@@ -112,25 +116,17 @@
                     </div>
                 </div>
 
-                <div class="hstack gap-3">
-
-                    <div class="container ms-2 mt-2 mb-2 border border-2 rounded">
-                        <div class="w-input-container">
-                            <div class="w-input-text-group">
-                                <div id="inputSendNewMsg" name="message" class="w-input-text" contenteditable
-                                    onkeydown="startTyping()"></div>
-                                <div class="w-placeholder">
-                                    Mensagem
-                                </div>
+                <div class="container border border-2 rounded">
+                    <div class="w-input-container">
+                        <div class="w-input-text-group">
+                            <div id="inputSendNewMsg" name="message" class="w-input-text" contenteditable onkeydown="startTyping()"></div>
+                            <div class="w-placeholder">
+                                Mensagem
                             </div>
                         </div>
                     </div>
-
-                    <button type="submit" class="btn btn-secondary rounded-circle me-2 hover">
-                        <i class="bi bi-send hover"></i>
-                    </button>
-
                 </div>
+
             </div>
 
         </form>
@@ -141,10 +137,11 @@
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/socket.io.js"></script>
     <script src="js/lib/scroll.js"></script>
+    <script src="js/lib/chat.js"></script>
     <script src="js/lib/moment-with-locales.js"></script>
-
     <script src="js/lib/delay.js"></script>
     <script src="js/lib/sound.js"></script>
+    
     <script src="js/main.js"></script>
     <script src="js/page.js"></script>
     <script src="js/avatar.js"></script>

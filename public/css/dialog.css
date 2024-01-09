@@ -24,6 +24,9 @@
 }
 
 .chatDialogRightContentDefault {
+    background: #333;
+    color: white;
+    text-align: end;
     width: fit-content;
     min-width: 50px;
     max-width: 70vw;
@@ -32,14 +35,43 @@
 }
 
 /* ao passar o mouse pelos grupos de mensagens */
-.bodyDialogGroup {
+.bodyDialog {
     background: #0000000f;
-    width: 100%;
+    width: 70%;
     padding: 0 7px 0 7px;
     border-radius: 10px;
     margin: 7px;
     transition: all .5s ease-in-out;
 }
+
+.bodyDialogGroup {
+    background: #0000000f;
+    width: 70%;
+    padding: 0 7px 0 7px;
+    border-radius: 10px;
+    margin: 7px;
+    transition: all .5s ease-in-out;
+}
+
+.bodyDialogGroup>div:not(:last-child) {
+    display: none;
+}
+
+/* .boxMe>*:last-child {
+    position: relative;
+    z-index: 0;
+}
+.boxMe>*:last-child::after {
+    content: '';
+    width: calc(100%);
+    height: calc(100% + 4px);
+    position: absolute;
+    background: red;
+    top: -2px;
+    left: calc(100% + -7px);
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+    border-radius: 5px;
+} */
 
 .bodyDialogGroup:hover {
     background: #00000028;
@@ -184,3 +216,65 @@
         opacity: 1;
     }
 }
+
+
+/* .cards {
+    position: relative;  
+    list-style-type: none;
+    padding: 0;
+    margin: 20% auto 0;
+  }
+  
+  .card {
+    witdh: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 40px #000;
+    transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+    transform-origin: 0 0;
+    transition: transform 0.6s cubic-bezier(.8,.2,.1,0.8) 0.1s, background 0.4s linear;
+    cursor: pointer;
+    user-select: none;
+    :last-child { margin-bottom: 0; }
+  }
+  
+  .card--next { 
+    z-index: 5; 
+    transform: translateY(-25px) rotate(4deg) translateX(25px) scale(1);
+  }
+  
+  .card--out {
+    max-width: 100px;
+    animation: card-out 0.6s cubic-bezier(.8,.2,.1,0.8);
+    transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95);
+    z-index: 1;
+    background: #bbb;
+  }
+  
+  .card--current {
+    width: fit-content;
+    cursor: auto;
+    user-select: auto;
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    background: #EEE;
+    transform: rotate(-1deg) translateX(0%) scale(1);
+  }
+  
+  @keyframes card-out {
+    0% { z-index: 20; transform: translateY(0px) rotate(-4deg); }
+    50% { transform: translateY(-120%) rotate(-5deg) translateX(-40px); }
+    80% { z-index: 1; }
+    100% { transform: translateY(-50px) rotate(8deg) translateX(55px) scale(0.95); }
+  }
+  
+  h1 { margin: 0; }
+  * { cursor: default; }
+  html, body { height: 100%; }
+  body { padding: 40px; background: #222232; } */

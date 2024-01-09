@@ -18,10 +18,12 @@ body {
     height: 5px;
     display: block;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #e4eaf5;
     border-radius: 8px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #bfc6d2;
 }
@@ -31,9 +33,11 @@ body {
     height: 100%;
     padding: 0px !important;
 }
+
 .w-input-text-group {
     position: relative;
 }
+
 .w-placeholder {
     color: black;
     padding: 0 0 0 4px;
@@ -44,6 +48,7 @@ body {
     opacity: 0;
     transition: 0.2s padding ease-in-out;
 }
+
 .w-input-container {
     width: 100%;
     min-height: 20px;
@@ -52,6 +57,7 @@ body {
     border-radius: 5px;
     padding: 10px !important;
 }
+
 .w-input-text {
     overflow-x: hidden;
     overflow-y: auto;
@@ -63,6 +69,236 @@ body {
     outline: 0;
     transition: 0.2s padding ease-in-out;
 }
+
 .w-input-text:empty+.w-placeholder {
     opacity: 1;
+}
+
+.cards-group-me {
+    display: flex;
+    justify-content: left;
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin-bottom: 100px;
+    list-style-type: none;
+    border: 2px solid red;
+}
+
+.cards-group-you {
+    display: flex;
+    justify-content: right;
+    position: relative;
+    top: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 2px solid green;
+}
+
+/* [START] CARD ME TEXT GROUP */
+.card-group-me {
+    max-width: 150px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: #ccc;
+    padding: 15px 10px 15px 10px;
+    box-shadow: 0 0 40px #000;
+    transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+    transform-origin: 0 0;
+    transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s,
+        background 0.4s linear;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.card-group-me>div:nth-child(1) {
+    display: none;
+    width: 95%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 8pt;
+    color: #000000b3;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-group-me>div:nth-child(2) {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 8pt;
+    color: #000000b3;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* [END] CARD ME TEXT GROUP */
+
+/* [START] CARD YOU TEXT GROUP */
+.card-group-you {
+    max-width: 150px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    background: #ccc;
+    padding: 15px 10px 15px 10px;
+    box-shadow: 0 0 40px #000;
+    transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+    transform-origin: 0 0;
+    transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.1, 0.8) 0.1s,
+        background 0.4s linear;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.card-group-you>div:nth-child(1) {
+    display: none;
+    width: 95%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 8pt;
+    color: #000000b3;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-group-you>div:nth-child(2) {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 8pt;
+    color: #000000b3;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* [END] CARD YOU TEXT GROUP */
+
+/* [START] CARD TEXT SIMPLE */
+.card-simple-me {
+    max-width: fit-content;
+    position: relative;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: #ccc;
+    padding: 15px 10px 15px 10px;
+    margin: 0 0 10px 0;
+    box-shadow: 0 0 40px #000;
+    cursor: pointer;
+    user-select: none;
+
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.card-simple-me>div:nth-child(1) {
+    width: 95%;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 8pt;
+    color: #000000b3;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-simple-me>div:nth-child(2) {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 8pt;
+    color: #000000b3;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* [END] CARD TEXT SIMPLE */
+
+.card--next-me {
+    cursor: pointer !important;
+    max-width: 150px;
+    z-index: 5;
+    transform: translateY(-10px) rotate(4deg) translateX(25px) scale(1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card--out-me {
+    cursor: pointer !important;
+    max-width: 200px;
+    animation: card-out-me 0.6s cubic-bezier(0.8, 0.2, 0.1, 0.8);
+    transform: translateY(-30px) rotate(8deg) translateX(55px) scale(0.95);
+    z-index: 1;
+    background: #bbb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card--current-me {
+    max-width: fit-content;
+    cursor: auto;
+    user-select: auto;
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    background: #eee;
+    transform: rotate(-1deg) translateX(0%) scale(1);
+}
+
+@keyframes card-out-me {
+    0% {
+        z-index: 20;
+        transform: translateY(0px) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-10%) rotate(-5deg) translateX(-30px);
+    }
+
+    80% {
+        z-index: 1;
+    }
+
+    100% {
+        transform: translateY(-30px) rotate(8deg) translateX(55px) scale(0.95);
+    }
 }
